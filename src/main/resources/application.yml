@@ -1,0 +1,49 @@
+server:
+  port: 8998
+  tomcat:
+    max-http-form-post-size: 10MB
+spring:
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/testRBAC
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 980903
+    url: jdbc:postgresql://localhost:5432/sceneContainer?stringtype=unspecified
+  redis:
+    database: 0
+    host: localhost         # Redis?????
+    port: 6379              # Redis???????
+    password:               # Redis?????????????
+    pool:
+      max-active: 200       # ????????????????????
+      max-idle: 10          # ???????????
+      max-wait: -1          # ???????????????????????
+      min-idle: 0           # ???????????
+    timeout: 1000           # ??????????
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.spatial.dialect.postgis.PostgisPG95Dialect
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5120MB
+      max-request-size: 15360MB
+  mvc:
+    async:
+      request-timeout: 600000
+resourcesPath: E:/DataSecenContainerResources
+# ??????
+
+backendIP: 172.21.213.250
+
+pgPassword: 980903
+pgsqlCmdPath: D:\\majorSoftware\\PostgreSQL\\10\bin
+shp2pgSqlWin: cmd /c {0}\\shp2pgsql.exe -I -s {1} -W {2} {3}  {4} | {0}\\psql.exe -h localhost -U postgres -d sceneContainer -p 5432
+shp2pgSqlLinux: shp2pgsql -I -s {1} -W "LATIN1" {2} {3} | psql -h localhost -U postgres -d sceneContainer -p 5432
+activatePythonEnv: activate saga_env3.8
+invokePythonScript: cmd /c {0} && python {1} {2}
